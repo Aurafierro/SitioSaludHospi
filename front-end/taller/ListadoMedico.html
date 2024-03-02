@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <script src="jss/bootstrap.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="jss/Medico.js"></script>
+  <title>Listado medico</title>
+</head>
+<!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
+
+<body onload="listarMedico();">
+  <div class="container">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Filtros</a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td style="border: 4px solid white !important">Id medico</td>
+          <td style="border: 4px solid white !important">
+            Tipo de documento
+          </td>
+          <td style="border: 4px solid white !important">
+            Número de Documento
+          </td>
+          <td style="border: 4px solid white !important">Primer Nombre</td>
+          <td style="border: 4px solid white !important">Segundo Nombre</td>
+          <td style="border: 4px solid white !important">Primer Apellido</td>
+          <td style="border: 4px solid white !important">
+            Segundo Apellido
+          </td>
+          <td style="border: 4px solid white !important">
+            Telefono
+          </td>
+          <td style="border: 4px solid white !important">Correo</td>
+          <td style="border: 4px solid white !important">Dirección</td>
+          <td style="border: 4px solid white !important">Estado</td>
+          <td style="border: 4px solid white !important">Opciones</td>
+        </tr>
+      </thead>
+
+
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar medico</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col col-xl-6 col-12">
+              <label for="">Tipo documento</label>
+              <select name="" id="tipo_documento" class="form-select">
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="RC">Registro Civil</option>
+                <option value="TI">Tarjeta de Identidad</option>
+                <option value="CC">Cedula de Ciudadanía</option>
+                <option value="CE">Cedula de Extranjería</option>
+              </select>
+            </div>
+
+            <div class="col col-xl-6 col-12">
+              <label for="">Número de documento</label>
+              <input type="hidden" id="id_medico" step="1">
+
+              <input type="number" id="numero_documento" step="1" class="form-control"
+                onfocusout="validarNumeroDocumento(this);" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Primer Nombre</label>
+              <input type="text" id="primer_nombre" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Segundo Nombre</label>
+              <input type="text" id="segundo_nombre" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Primer Apellido</label>
+              <input type="text" id="primer_apellido" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Segundo Apellido</label>
+              <input type="text" id="segundo_apellido" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Teléfono</label>
+              <input type="text" id="telefono" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Correo</label>
+              <input type="email" id="correo" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Dirección</label>
+              <input type="text" id="direccion" class="form-control" />
+            </div>
+            <div class="col col-xl-6 col-12">
+              <label for="">Estado</label>
+              <input type="text" id="estado" class="form-control" />
+            </div>
+          </div>
+          <button class="btn btn-success" onclick="limpiarMedico();">
+            Limpiar
+          </button>
+          <button type="button" class="btn btn-primary" onclick="actualizarMedico();">Actualizar</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

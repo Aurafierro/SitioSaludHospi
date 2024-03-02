@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="jss/Ingreso.js"></script>
+    <title>Listado ingreso</title>
+  </head>
+  <!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
+  <body onload="listarIngreso();">
+    <div class="container">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <td style="border: 4px solid white !important">Id ingreso</td>
+            <td style="border: 4px solid white !important">
+                Nombre completo medico
+            </td>
+            <td style="border: 4px solid white !important">
+              Nombre completo paciente
+            </td>
+            <div class="col col-xl-6 col-12">
+              <label for="">Habitacion</label>
+              <input type="number" id="numero_documento" 
+              step="1"
+              class="form-control" onfocusout="validarHabitacion(this);">
+          </div>
+            <td style="border: 4px solid white !important">Cama</td>
+            <td style="border: 4px solid white !important">Fecha ingreso</td>
+            <td style="border: 4px solid white !important">
+              Fecha salida
+            </td>
+            <td style="border: 4px solid white !important">
+              Estado
+            </td>
+          </tr>
+        </thead>
+
+        <tbody id="cuerpoTabla"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
