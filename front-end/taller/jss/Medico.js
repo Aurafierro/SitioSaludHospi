@@ -361,7 +361,7 @@ function validarDireccion(cuadroNumero) {
   return valido;
 
 }
-//ValidadEstado vv
+//ValidadEstado 
 
 
 function validarCampos() {

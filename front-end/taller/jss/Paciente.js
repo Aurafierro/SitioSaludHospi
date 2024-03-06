@@ -437,7 +437,7 @@ function validarEstado(cuadroNumero) {
   }
 
   if (valido) {
-    //cuadro de texto cumple s
+    //cuadro de texto cumple 
     cuadroNumero.className = "form-control is-valid";
   } else {
     //cuadro de texto no cumple
