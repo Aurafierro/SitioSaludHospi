@@ -55,7 +55,7 @@ public class ingresoController {
 			var ListaIngreso = ingresoService.filtroIngreso(filtro);
 			return new ResponseEntity<>(ListaIngreso, HttpStatus.OK);
 		}
-	
+	//a
 	//@PathVariable recibe una variable por el enlace 
 	
 	@GetMapping("/{id_ingreso}")
