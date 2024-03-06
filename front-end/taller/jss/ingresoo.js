@@ -115,7 +115,7 @@ function actualizarIngreso() {
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado")
+    "estado": document.getElementById("estado").value
 
 };
 
@@ -161,7 +161,7 @@ function registrarIngreso() {
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado")
+    "estado": document.getElementById("estado").value
 
   };
 

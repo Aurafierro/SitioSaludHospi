@@ -51,7 +51,7 @@ public class ingresoController {
 	
 	//filtro
 		@GetMapping("/busquedafiltro/{filtro}")
-		public ResponseEntity<Object>findFiltro(@PathVariable String filtro){
+		public ResponseEntity<Object>filtroIngreso(@PathVariable String filtro){
 			var ListaIngreso = ingresoService.filtroIngreso(filtro);
 			return new ResponseEntity<>(ListaIngreso, HttpStatus.OK);
 		}

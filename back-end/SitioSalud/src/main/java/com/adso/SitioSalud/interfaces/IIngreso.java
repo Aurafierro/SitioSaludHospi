@@ -12,11 +12,10 @@ import com.adso.SitioSalud.models.ingreso;
 @Repository
 
 public interface IIngreso extends CrudRepository<ingreso,String>{
-	@Query("SELECT i FROM ingreso i WHERE "
-			+ "i.habitacion LIKE %?1% OR "
-			+ "i.cama LIKE %?1% OR "
-			+ "i.fecha_ingreso = ?1 OR "
-			+ "i.fecha_salida = ?1 OR "
-			+ "i.estado LIKE %?1%")
-	List<ingreso>filtroIngreso (String filtro);
+	@Query("SELECT i FROM ingreso i JOIN "
+			+"i.medico m "
+			+"JOIN i.paciente p "
+			+"WHERE p.primer_nombre like %?1% "
+			+"OR m.primer_nombre LIKE %?1% ")
+	List<ingreso>findFilterIngreso (String filtro);
 }

@@ -32,7 +32,7 @@ public class ingresoService  implements IIngresoService{
 
 	@Override
 	public List<ingreso> filtroIngreso(String filtro) {
-		List <ingreso> listaIngreso=data.filtroIngreso(filtro);
+		List <ingreso> listaIngreso=data.findFilterIngreso(filtro);
 		return listaIngreso;
 	}
 	
