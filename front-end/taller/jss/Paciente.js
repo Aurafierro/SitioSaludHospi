@@ -296,8 +296,156 @@ function validarPrimer_apellido(cuadroNumero) {
 
 }
   
+//ValidadTelefono
+function validarCampos() {
+  var telefono = document.getElementById("telefono");
+  return validarTelefono(telefono);
+}
+function validarTelefono(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10 || valor.length > 15) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadCorreo
+function validarCampos() {
+  var correo = document.getElementById("correo");
+  return validarCorreo(correo);
+}
+function validarCorreo(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 5 || valor.length > 200) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadDireccion
 
 
+function validarCampos() {
+  var direccion = document.getElementById("direccion");
+  return validarDireccion(direccion);
+}
+function validarDireccion(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10  || valor.length > 200) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadNomPersonaContacto
+
+
+function validarCampos() {
+  var estadonombre_persona_contacto = document.getElementById("nombre_persona_contacto");
+  return validarNomPersonaContacto(nombre_persona_contacto);
+}
+function validarNomPersonaContacto(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 5  || valor.length > 20) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadTelPersonaContacto
+
+
+function validarCampos() {
+  var telefono_persona_contacto = document.getElementById("telefono_persona_contacto");
+  return validarTelPersonaContacto(telefono_persona_contacto);
+}
+function validarTelPersonaContacto(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10 || valor.length > 15) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+//ValidadEstado
+
+
+function validarCampos() {
+  var estado = document.getElementById("estado");
+  return validarEstado(estado);
+}
+function validarEstado(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1  || valor.length > 1) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple 
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
 function limpiarPaciente() {
   document.getElementById("tipo_documento").value = "";
   document.getElementById("numero_documento").value = "";

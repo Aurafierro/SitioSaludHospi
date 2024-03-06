@@ -23,17 +23,17 @@
 
             <div class="col col-xl-6 col-12">
                 <label for="">Id paciente</label>
-                <input type="text" id="id_paciente" class="form-control" />
+                <input type="text" id="id_paciente" class="form-control"onfocusout="ValidarIdPaciente(this);" />
             </div>
 
             <div class="col col-xl-6 col-12">
                 <label for="">Id medico</label>
-                <input type="text" id="id_medico" class="form-control" />
+                <input type="text" id="id_medico" class="form-control" onfocusout="validarIdMedico(this);" />
             </div>
 
             <div class="col col-xl-6 col-12">
                 <label for="">Habitacion</label>
-                <input type="text" id="habitacion" class="form-control" />
+                  <input type="text" id="habitacion" class="form-control" onfocusout="validarHabitacion(this);"/>
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Cama</label>
@@ -43,15 +43,15 @@
 
             <div class="col col-xl-6 col-12">
                 <label for="">Fecha ingreso</label>
-                <input type="text" id="fecha_ingreso" class="form-control" />
+                <input type="text" id="fecha_ingreso" class="form-control"onfocusout="validarFechaIngreso(this);" />
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Fecha salida</label>
-                <input type="text" id="fecha_salida" class="form-control" />
+              <input type="text" id="fecha_salida" class="form-control"onfocusout="validarFechaSalida(this);" />
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Estado</label>
-                <input type="text" id="primer_apellido" class="form-control" />
+                <input type="text" id="estado" class="form-control" onfocusout="validarEstado(this);"/>
             </div>
 
         </div>
