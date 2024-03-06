@@ -4,7 +4,7 @@ function listarMedico() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
   $.ajax({
-    url: url,
+    url: url,   
     type: "GET",
     success: function (result) {
       //success: funcion que se ejecuta
@@ -240,6 +240,152 @@ function validarNumeroDocumento(cuadroNumero) {
 
 }
 
+//Validadnombre
+
+function validarCampos() {
+  var primer_nombre = document.getElementById("primer_nombre");
+  return validarPrimer_nombre(primer_nombre);
+}
+function validarPrimer_nombre(cuadroNumero) {
+
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1 || valor.length > 11) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadApellido
+function validarCampos() {
+  var primer_apellido = document.getElementById("primer_apellido");
+  return validarPrimer_apellido(primer_apellido);
+}
+function validarPrimer_apellido(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1 || valor.length > 11) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadTelefono
+function validarCampos() {
+  var telefono = document.getElementById("telefono");
+  return validarTelefono(telefono);
+}
+function validarTelefono(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10 || valor.length > 15) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadCorreo
+function validarCampos() {
+  var correo = document.getElementById("correo");
+  return validarCorreo(correo);
+}
+function validarCorreo(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 5 || valor.length > 200) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+//ValidadDireccion
+
+
+function validarCampos() {
+  var direccion = document.getElementById("direccion");
+  return validarDireccion(direccion);
+}
+function validarDireccion(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10  || valor.length > 200) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+//ValidadEstado
+
+
+function validarCampos() {
+  var estado = document.getElementById("estado");
+  return validarEstado(estado);
+}
+function validarEstado(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1  || valor.length > 1) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
 function limpiarMedico() {
   document.getElementById("tipo_documento").value = "";
   document.getElementById("numero_documento").value = "";

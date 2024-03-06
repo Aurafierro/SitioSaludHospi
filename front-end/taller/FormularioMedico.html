@@ -40,12 +40,11 @@
         <div class="col col-xl-6 col-12">
           <label for="">Número de documento</label>
 
-          <input type="number"id="numero_documento"step="1"class="form-control" onfocusout="validarNumeroDocumento(this);"
-          />
+          <input type="number"id="numero_documento"step="1"class="form-control" onfocusout="validarNumeroDocumento(this);" />
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Primer Nombre</label>
-          <input type="text" id="primer_nombre" class="form-control" />
+          <input type="text" id="primer_nombre" class="form-control" onfocusout="validarPrimer_nombre(this);" />
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Segundo Nombre</label>
@@ -53,7 +52,7 @@
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Primer Apellido</label>
-          <input type="text" id="primer_apellido" class="form-control" />
+          <input type="text" id="primer_apellido" class="form-control" onfocusout="validarPrimer_apellido(this);" />
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Segundo Apellido</label>
@@ -61,19 +60,19 @@
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Teléfono</label>
-          <input type="text" id="telefono" class="form-control" />
+          <input type="text" id="telefono" class="form-control"  onfocusout="validarTelefono(this);"/>
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Correo</label>
-          <input type="email" id="correo" class="form-control" />
+          <input type="email" id="correo" class="form-control"  onfocusout="validarCorreo(this);"/>
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Dirección</label>
-          <input type="text" id="direccion" class="form-control" />
+          <input type="text" id="direccion" class="form-control"  onfocusout="validarDireccion(this);" />
         </div>
         <div class="col col-xl-6 col-12">
           <label for="">Estado</label>
-          <input type="text" id="estado" class="form-control" />
+          <input type="text" id="estado" class="form-control"onfocusout="validarEstado(this);" />
         </div>
       </div>
       <button class="btn btn-success" onclick="registrarMedico();">
@@ -82,6 +81,7 @@
       <button class="btn btn-success" onclick="limpiarMedico();">
         Limpiar
       </button>
+      <a href="./paginaPrincipal.html"><button class="btn btn-success">Ir a pagina Principal</button></a>
     </div>
   </body>
 </html>

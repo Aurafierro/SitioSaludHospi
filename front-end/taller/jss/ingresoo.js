@@ -132,7 +132,7 @@ if (validarCampos()) {
               icon: "success"
             });
           // Puedes hacer algo adicional como recargar la lista de médicos
-          listarMedico();
+          listarIngreso();
       },
       error: function(error) {
           // Manejar el error de la petición
