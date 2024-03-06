@@ -212,7 +212,7 @@ function validarCama(cuadroNumero) {
   }
 
   if (valido) {
-    //cuadro de texto cumple
+    //cuadro de texto cumple s
     cuadroNumero.className = "form-control is-valid";
   } else {
     //cuadro de texto no cumple
