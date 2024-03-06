@@ -222,7 +222,151 @@ function validarCama(cuadroNumero) {
 
 }
 
+//ValidarIdPaciente
+function validarCampos() {
+  var id_paciente = document.getElementById("id_paciente");
+  return ValidarIdPaciente(id_paciente);
+}
+function ValidarIdPaciente(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1 || valor.length > 20) {
+    valido = false
+  }
 
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//validarIdMedico
+function validarCampos() {
+  var id_medico = document.getElementById("id_medico");
+  return validarIdMedico(id_medico);
+}
+function validarIdMedico(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1 || valor.length > 20) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//validarHabitacion
+function validarCampos() {
+  var habitacion = document.getElementById("habitacion");
+  return validarHabitacion(habitacion);
+}
+function validarHabitacion(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1 || valor.length > 20) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//validarFechaIngreso
+function validarCampos() {
+  var fecha_ingreso = document.getElementById("fecha_ingreso");
+  return validarFechaIngreso(fecha_ingreso);
+}
+function validarFechaIngreso(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10|| valor.length > 10) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//validarFechaSalida
+function validarCampos() {
+  var fecha_salida = document.getElementById("fecha_salida");
+  return validarFechaSalida(fecha_salida);
+}
+function validarFechaSalida(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 10|| valor.length > 10) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
+//ValidadEstado
+
+
+function validarCampos() {
+  var estado = document.getElementById("estado");
+  return validarEstado(estado);
+}
+function validarEstado(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1  || valor.length > 1) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
 function limpiarIngreso() {
   document.getElementById("id_paciente").value = "";
   document.getElementById("id_medico").value = "";
