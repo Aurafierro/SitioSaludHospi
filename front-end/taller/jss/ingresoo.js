@@ -287,6 +287,31 @@ function ValidadHabitacion(cuadroNumero) {
   return valido;
 
 }
+//ValidadEstado
+
+function validarCampos() {
+  var estado = document.getElementById("estado");
+  return validarEstado(estado);
+}
+function validarEstado(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1  || valor.length > 1) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
+
 
 //ValidadFechaIngreso
 
@@ -338,33 +363,6 @@ function validadFechaSalida(cuadroNumero) {
   return valido;
 
 }
-
-//ValidadEstado
-
-
-function validarCampos() {
-  var estado = document.getElementById("estado");
-  return validarEstado(estado);
-}
-function validarEstado(cuadroNumero) {
-  
-  var valor = cuadroNumero.value;
-  var valido = true;
-  if (valor.length < 1  || valor.length > 1) {
-    valido = false
-  }
-
-  if (valido) {
-    //cuadro de texto cumple
-    cuadroNumero.className = "form-control is-valid";
-  } else {
-    //cuadro de texto no cumple
-    cuadroNumero.className = "form-control is-invalid";
-  }
-  return valido;
-
-}
-
 function limpiarIngreso() {
   document.getElementById("id_paciente").value = "";
   document.getElementById("id_medico").value = "";
