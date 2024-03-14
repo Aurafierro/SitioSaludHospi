@@ -48,10 +48,7 @@ function listarMedico() {
 
         botonEditarMedico.className = "btn btn-warning editar-medico";
 
-        let botonDeshabilitarMedico = document.createElement("button");
-        botonDeshabilitarMedico.innerHTML = "Deshabilitar"
-        botonDeshabilitarMedico.className = "btn btn-danger"
-
+        
         celdaId.innerText = result[i]["id_medico"];
         celdaTipoDocumento.innerText = result[i]["tipo_documento"];
         celdaNumeroDocumento.innerText = result[i]["numero_documento"];
@@ -81,9 +78,7 @@ function listarMedico() {
         celdaOpcion.appendChild(botonEditarMedico);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDeshabilitarMedico);
-        trResgistro.appendChild(celdaOpcion)
-
+       
         cuerpoTabla.appendChild(trResgistro);
 
 

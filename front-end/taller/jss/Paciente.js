@@ -51,9 +51,7 @@ function listarPaciente() {
         botonEditarPaciente.className = "btn btn-warning editar-paciente";
 
 
-        let botonDeshabilitarPaciente = document.createElement("button");
-        botonDeshabilitarPaciente.innerHTML = "Deshabilitar"
-        botonDeshabilitarPaciente.className = "btn btn-danger"
+        
 
         celdaId.innerText = result[i]["id_paciente"];
         celdaTipoDocumento.innerText = result[i]["tipo_documento"];
@@ -88,9 +86,7 @@ function listarPaciente() {
         celdaOpcion.appendChild(botonEditarPaciente);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDeshabilitarPaciente);
-        trResgistro.appendChild(celdaOpcion)
-
+       
         cuerpoTabla.appendChild(trResgistro);
 
 
@@ -385,7 +381,7 @@ function validadNomPersonaContacto(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 10  || valor.length > 20) {
+  if (valor.length < 3 || valor.length > 20) {
     valido = false
   }
 

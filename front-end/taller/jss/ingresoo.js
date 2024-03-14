@@ -45,9 +45,7 @@ function listarIngreso() {
 
         botonEditarIngreso.className = "btn btn-warning editar_ingreso"
 
-        let botonDeshabilitarIngreso = document.createElement("button")
-        botonDeshabilitarIngreso.innerHTML = "Deshabilitar"
-        botonDeshabilitarIngreso.className = "btn btn-danger"
+        
 
         
         celdaId.innerText = result[i]["id_ingreso"];
@@ -73,8 +71,7 @@ function listarIngreso() {
         celdaOpcion.appendChild(botonEditarIngreso);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDeshabilitarIngreso);
-        trResgistro.appendChild(celdaOpcion)
+        
 
         cuerpoTabla.appendChild(trResgistro);
 
@@ -166,7 +163,7 @@ function registrarIngreso() {
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado")
+    "estado": document.getElementById("estado").value
 
   };
 
