@@ -3,8 +3,13 @@ var url = "http://localhost:8080/api/v1/medico/";
 function listarMedico() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
+  var capturarFiltro = document.getElementById("inputSearch").value;
+  var urlLocal=url;
+  if (capturarFiltro!=""){
+    urlLocal+="busquedafiltro/"+capturarFiltro;
+  }
   $.ajax({
-    url: url,
+    url: urlLocal,
     type: "GET",
     success: function (result) {
       //success: funcion que se ejecuta
@@ -399,5 +404,6 @@ function limpiarMedico() {
   document.getElementById("direccion").value = "";
   document.getElementById("estado").value = "";
 }
+
 
 

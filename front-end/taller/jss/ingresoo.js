@@ -3,8 +3,13 @@ var url = "http://localhost:8080/api/v1/ingreso/";
 function listarIngreso() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
+  var capturarFiltro = document.getElementById("inputSearch").value;
+  var urlLocal=url;
+  if (capturarFiltro!=""){
+    urlLocal+="busquedafiltro/"+capturarFiltro;
+  }
   $.ajax({
-    url: url,
+    url: urlLocal,
     type: "GET",
     success: function (result) {
       //success: funcion que se ejecuta
@@ -115,7 +120,7 @@ function actualizarIngreso() {
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado")
+    "estado": document.getElementById("estado").value
 
 };
 
