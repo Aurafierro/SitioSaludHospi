@@ -4,7 +4,7 @@ function listarMedico() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
   $.ajax({
-    url: url,   
+    url: url,
     type: "GET",
     success: function (result) {
       //success: funcion que se ejecuta
@@ -93,6 +93,7 @@ function listarMedico() {
       alert("Error en la petición " + error);
     }
   })
+  
 }
 
 function consultarMedicoID(id){
@@ -398,3 +399,5 @@ function limpiarMedico() {
   document.getElementById("direccion").value = "";
   document.getElementById("estado").value = "";
 }
+
+

@@ -17,13 +17,14 @@
 
 <body onload="listarMedico();">
   <div class="container">
+
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand">Filtros</a>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <form class="d-flex" role="search" onsubmit="buscarMedico(); return false;">
+          <input class="form-control me-2" type="search" placeholder="Buscar médico" aria-label="Search" id="inputSearch">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
       </div>
     </nav>
     <table class="table table-dark table-striped">
