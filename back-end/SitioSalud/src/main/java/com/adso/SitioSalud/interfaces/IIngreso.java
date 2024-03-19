@@ -38,7 +38,7 @@ public interface IIngreso extends CrudRepository<ingreso,String>{
 
 		
 			@Query ("SELECT i FROM ingreso i JOIN i.paciente p "
-					+"WHERE p.id_paciente=?1 AND i.estado='Activo' "
+					+"WHERE p.id_paciente=?1 AND i.estado='H' "
 			
 			
 			)

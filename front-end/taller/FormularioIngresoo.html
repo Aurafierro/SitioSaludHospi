@@ -19,58 +19,64 @@
 <body onload="CargarFormulario();">
     <div class="container">
         <h1 style="margin-top: 100px">Añadir ingreso</h1>
+        <br>
         <div class="row">
 
             <div class="col col-xl-6 col-12">
-                <label for="paciente" class="form-label">Nombre paciente</label>
+                <b><label for="paciente" class="form-label">Nombre paciente</label></b>
                 <select name="paciente" id="id_paciente" class="form-select">
-                  <option value="" selected disabled>Seleccione el paciente </option>
-                  <option value=""></option>
-                  <option value=""></option>
+                    <option value="" selected disabled>Seleccione el paciente </option>
+                    <option value=""></option>
+                    <option value=""></option>
                 </select>
-              </div>
-              <div class="col col-xl-6 col-12">
-                <label for="medico" class="form-label">Nombre médico</label>
-                <select name="medico" id="id_medico" class="form-select">
-                  <option selected disabled value="">
-                    Seleccione el médico
-                  </option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
-
-            <div class="col col-xl-6 col-12">
-                <label for="">Habitacion</label>
-                <input type="text" id="habitacion" class="form-control" onfocusout="ValidadHabitacion(this);"/>
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Cama</label>
+                <b><label for="medico" class="form-label">Nombre médico</label></b>
+                <select name="medico" id="id_medico" class="form-select">
+                    <option selected disabled value="">
+                        Seleccione el médico
+                    </option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Habitacion</label></b>
+                <input type="number" id="habitacion" class="form-control" onfocusout="ValidadHabitacion(this);" />
+            </div>
+            <div class="col col-xl-6 col-12">
+                <b><label for="">Cama</label></b>
 
                 <input type="number" id="cama" step="1" class="form-control" onfocusout="validarCama(this);" />
             </div>
 
             <div class="col col-xl-6 col-12">
-                <label for="">Fecha ingreso</label>
-                <input type="text" id="fecha_ingreso" class="form-control"onfocusout="ValidadFechaIngreso(this);" />
+                <b><label for="">Fecha ingreso</label></b>
+                <input type="date" id="fecha_ingreso" class="form-control" onfocusout="ValidadFechaIngreso(this);" />
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Fecha salida</label>
-                <input type="text" id="fecha_salida" class="form-control"onfocusout="validadFechaSalida(this);" />
+                <b><label for="">Fecha salida</label></b>
+                <input type="date" id="fecha_salida" class="form-control" onfocusout="validadFechaSalida(this);" />
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Estado</label>
-                <input type="text" id="estado" class="form-control" onfocusout="validarEstado(this);" />
+                <b><label for="">Estado</label></b>
+                <select name="" id="estado" class="form-select" onfocusout="validarEstado(this);">
+                    <option value="" selected disabled style="font-weight: bold;">Selecciona una opción</option>
+                    <option value="H" style="color:green; font-weight: bold;">Habilitado</option>
+                    <option value="D" style="color: red; font-weight: bold;">Deshabilitado</option>
+                </select>
             </div>
 
         </div>
+        <br>
         <button id="boton_enviar" class="btn btn-success" onclick="registrarIngreso();">
             Enviar
         </button>
         <button class="btn btn-success" onclick="limpiarIngreso();">
             Limpiar
-          </button>
-          <a href="./paginaPrincipal.html"><button class="btn btn-success">Ir a pagina Principal</button></a>
+        </button>
+        <a href="./paginaPrincipal.html"><button class="btn btn-success">Ir a pagina Principal</button></a>
     </div>
 </body>
 

@@ -15,7 +15,7 @@
 </head>
 <!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
 
-<body onload="listarIngreso();">
+<body onload="listarIngreso();" >
   <div class="container">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
@@ -27,7 +27,7 @@
         </form>
       </div>
       <div>
-        <button class="btn btn-success">Habilitados</button>
+        <button class="btn btn-success" type="button" onclick="habilitados();">Habilitados</button>
         <button class="btn btn-danger">Deshabilitados</button>
       </div>
     </nav>
@@ -59,25 +59,33 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Editar medico</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" onload="CargarFormulario();">
           <div class="row">
 
             <div class="col col-xl-6 col-12">
-              <label for="">Id paciente</label>
-              <input type="text" id="id_paciente" class="form-control" />
-
+              <label for="paciente" class="form-label">Nombre paciente</label>
+              <select name="paciente" id="id_paciente" class="form-select">
+                <option value="" selected disabled>Seleccione el paciente </option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
             </div>
-
             <div class="col col-xl-6 col-12">
-              <label for="">Id medico</label>
-              <input type="text" id="id_medico" class="form-control" />
+              <label for="medico" class="form-label">Nombre médico</label>
+              <select name="medico" id="id_medico" class="form-select">
+                <option selected disabled value="">
+                  Seleccione el médico
+                </option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
             </div>
 
             <div class="col col-xl-6 col-12">
@@ -111,7 +119,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
