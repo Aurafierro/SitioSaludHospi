@@ -15,7 +15,7 @@
 </head>
 <!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
 
-<body onload="listarIngreso();">
+<body onload="listarIngreso(); CargarFormulario();">
   <div class="container">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
@@ -69,7 +69,7 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Editar medico</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" onload="CargarFormulario();">
+        <div class="modal-body">
           <div class="row">
 
             <div class="col col-xl-6 col-12">

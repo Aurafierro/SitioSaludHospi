@@ -90,6 +90,7 @@ function listarIngreso() {
 }
 
 function consultarIngresoID(id){
+  //CargarFormulario();
   //alert(id);
   $.ajax({
       url:url+id,
@@ -442,11 +443,3 @@ function cargarPaciente() {
     },
   });
 }
-
-<<<<<<< HEAD
-
-
-=======
-  
- 
->>>>>>> 14d6907f0264b364e478c11f148ff969bf97d204
