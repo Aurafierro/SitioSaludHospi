@@ -16,20 +16,29 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body onload="CargarFormulario();">
     <div class="container">
         <h1 style="margin-top: 100px">Añadir ingreso</h1>
         <div class="row">
 
             <div class="col col-xl-6 col-12">
-                <label for="">Id paciente</label>
-                <input type="text" id="id_paciente" class="form-control" onfocusout="validarIdPaciente(this);" />
-            </div>
-
-            <div class="col col-xl-6 col-12">
-                <label for="">Id medico</label>
-                <input type="text" id="id_medico" class="form-control" onfocusout="validarIdMedico(this);"/>
-            </div>
+                <label for="paciente" class="form-label">Nombre paciente</label>
+                <select name="paciente" id="id_paciente" class="form-select">
+                  <option value="" selected disabled>Seleccione el paciente </option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="col col-xl-6 col-12">
+                <label for="medico" class="form-label">Nombre médico</label>
+                <select name="medico" id="id_medico" class="form-select">
+                  <option selected disabled value="">
+                    Seleccione el médico
+                  </option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
 
             <div class="col col-xl-6 col-12">
                 <label for="">Habitacion</label>
@@ -51,7 +60,7 @@
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Estado</label>
-                <input type="text" id="primer_apellido" class="form-control" onfocusout="validarEstado(this);" />
+                <input type="text" id="estado" class="form-control" onfocusout="validarEstado(this);" />
             </div>
 
         </div>

@@ -11,7 +11,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+
   <script src="jss/Paciente.js"></script>
   <title>Listado paciente</title>
 </head>
@@ -21,11 +21,16 @@
   <div class="container">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand">Filtros</a>
+        <b><a class="navbar-brand">Filtros</a></b>
         <form class="d-flex" role="search" onsubmit="buscarPaciente(); return false;">
-          <input class="form-control me-2" type="search" placeholder="Buscar paciente" aria-label="Search" id="inputSearch">
+          <input class="form-control me-2" type="search" placeholder="Buscar paciente" aria-label="Search"
+            id="inputSearch">
           <button class="btn btn-outline-success" type="button" onclick="listarPaciente();">Buscar</button>
-      </form>
+        </form>
+      </div>
+      <div>
+        <button class="btn btn-success">Habilitados</button>
+        <button class="btn btn-danger">Deshabilitados</button>
       </div>
     </nav>
     <table class="table table-dark table-striped ">

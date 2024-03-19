@@ -170,6 +170,7 @@ if (validarCampos()) {
 
 function registrarMedico() {
 
+
   let formData = {
     "tipo_documento": document.getElementById("tipo_documento").value,
     "numero_documento": document.getElementById("numero_documento").value,
@@ -196,6 +197,7 @@ function registrarMedico() {
           text: "Se guardó correctamente",
           icon: "success"
         });
+        limpiarMedico();
       },
     })
   } else {
@@ -388,6 +390,13 @@ function validarEstado(cuadroNumero) {
 
 }
 function limpiarMedico() {
+  document.getElementById("numero_documento").className="form-control";
+  document.getElementById("primer_nombre").className="form-control";
+  document.getElementById("primer_apellido").className="form-control";
+  document.getElementById("telefono").className="form-control";
+  document.getElementById("correo").className="form-control";
+  document.getElementById("direccion").className="form-control";
+  document.getElementById("estado").className="form-control";
   document.getElementById("tipo_documento").value = "";
   document.getElementById("numero_documento").value = "";
   document.getElementById("primer_nombre").value = "";

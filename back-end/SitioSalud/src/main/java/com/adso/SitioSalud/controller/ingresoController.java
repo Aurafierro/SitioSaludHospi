@@ -1,5 +1,7 @@
 package com.adso.SitioSalud.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -35,10 +37,16 @@ public class ingresoController {
 	 * retorna un json , indicando si funciono, presentó
 	 * error, los datos solicitados
 	 */
-	@PostMapping("/")
-  public ResponseEntity<Object> save(
-		  @ModelAttribute("ingreso")ingreso ingreso
-		  ){
+  @PostMapping("/")
+	public ResponseEntity<Object> save(
+			@ModelAttribute("ingreso") ingreso ingreso
+			){
+			
+				List<ingreso> listaPacienteA=ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
+			if(listaPacienteA.size()!=0){
+				
+				return new ResponseEntity<>("El paciente ya tiene un ingreso activo",HttpStatus.BAD_REQUEST);		
+			}
 		ingresoService.save(ingreso);
 		return new ResponseEntity<>(ingreso,HttpStatus.OK);
 	}
@@ -84,8 +92,6 @@ public class ingresoController {
      }
 		
 	
-
-     
 	
 	@PutMapping("/{id_ingreso}")
 	public ResponseEntity<Object> update  ( @PathVariable String id_ingreso, @ModelAttribute("ingreso") ingreso ingresoUpdate){

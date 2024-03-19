@@ -1,6 +1,7 @@
 package com.adso.SitioSalud.interfaces;
 
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,20 @@ public interface IIngreso extends CrudRepository<ingreso,String>{
 			+"OR i.fecha_ingreso= ?1 "
 			+"OR i.fecha_salida= ?1 ")
 	List<ingreso>filtroIngreso (String filtro);
+	
+	@Query ("SELECT i FROM ingreso i "
+
+			+ "WHERE i.fecha_ingreso = ?1 "
+			
+			
+			)
+			List<ingreso> filtroFechaIngreso(Date fecha_ingreso);
+
+		
+			@Query ("SELECT i FROM ingreso i JOIN i.paciente p "
+					+"WHERE p.id_paciente=?1 AND i.estado='Activo' "
+			
+			
+			)
+			List<ingreso> filtroEstado(String id_paciente);
 }

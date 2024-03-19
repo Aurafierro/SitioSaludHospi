@@ -1,5 +1,6 @@
 package com.adso.SitioSalud.service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,18 @@ public class ingresoService  implements IIngresoService{
 	public List<ingreso> filtroIngreso(String filtro) {
 		List <ingreso> listaIngreso=data.filtroIngreso(filtro);
 		return listaIngreso;
+	}
+	
+	@Override
+	public List<ingreso> filtroEstado(String id_paciente) {
+		List<ingreso>ListaIngreso=data.filtroEstado(id_paciente);
+		return ListaIngreso;
+	}
+
+	@Override
+	public List<ingreso> filtroFechaIngreso(Date fecha_ingreso) {
+		List<ingreso>ListaIngreso=data.filtroFechaIngreso(fecha_ingreso);
+		return ListaIngreso;
 	}
 	
 	@Override

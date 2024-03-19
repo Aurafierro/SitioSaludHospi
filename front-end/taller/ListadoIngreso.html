@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <script src="jss/bootstrap.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="jss/ingresoo.js"></script>
-    <title>Listado ingreso</title>
-  </head>
-  <!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
-  <body onload="listarIngreso();">
-    <div class="container">
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand">Filtros</a>
-          <form class="d-flex" role="search" onsubmit="buscarIngreso(); return false;">
-            <input class="form-control me-2" type="search" placeholder="Buscar médico" aria-label="Search" id="inputSearch">
-            <button class="btn btn-outline-success" type="button" onclick="listarIngreso();">Buscar</button>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <script src="jss/bootstrap.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="jss/ingresoo.js"></script>
+  <title>Listado ingreso</title>
+</head>
+<!--cse requiere que cuando cargue la pagina se ejecute la peticionde listar los clientes-->
+
+<body onload="listarIngreso();">
+  <div class="container">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <b><a class="navbar-brand">Filtros</a></b>
+        <form class="d-flex" role="search" onsubmit="buscarIngreso(); return false;">
+          <input class="form-control me-2" type="search" placeholder="Buscar ingreso" aria-label="Search"
+            id="inputSearch">
+          <button class="btn btn-outline-success" type="button" onclick="listarIngreso();">Buscar</button>
         </form>
-        </div>
-      </nav>
-      <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <td style="border: 4px solid white !important">Id ingreso</td>
-            <td style="border: 4px solid white !important">
-                Nombre paciente
-            </td>
-            <td style="border: 4px solid white !important">
-              Nombre medico
-            </td>
-            <td style="border: 4px solid white !important">Habitacion</td>
-            <td style="border: 4px solid white !important">Cama</td>
-            <td style="border: 4px solid white !important">Fecha ingreso</td>
-            <td style="border: 4px solid white !important">
-              Fecha salida
-            </td>
-            <td style="border: 4px solid white !important">
-              Estado
-            </td>
-            <td style="border: 4px solid white !important">Opciones</td>
-          </tr>
-        </thead>
+      </div>
+      <div>
+        <button class="btn btn-success">Habilitados</button>
+        <button class="btn btn-danger">Deshabilitados</button>
+      </div>
+    </nav>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td style="border: 4px solid white !important">Id ingreso</td>
+          <td style="border: 4px solid white !important">
+            Nombre paciente
+          </td>
+          <td style="border: 4px solid white !important">
+            Nombre medico
+          </td>
+          <td style="border: 4px solid white !important">Habitacion</td>
+          <td style="border: 4px solid white !important">Cama</td>
+          <td style="border: 4px solid white !important">Fecha ingreso</td>
+          <td style="border: 4px solid white !important">
+            Fecha salida
+          </td>
+          <td style="border: 4px solid white !important">
+            Estado
+          </td>
+          <td style="border: 4px solid white !important">Opciones</td>
+        </tr>
+      </thead>
 
-        <tbody id="cuerpoTabla"></tbody>
-      </table>
-    </div>
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+  </div>
 
-     <!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -63,41 +70,41 @@
           <div class="row">
 
             <div class="col col-xl-6 col-12">
-                <label for="">Id paciente</label>
-                <input type="text" id="id_paciente" class="form-control" />
-              
+              <label for="">Id paciente</label>
+              <input type="text" id="id_paciente" class="form-control" />
+
             </div>
 
             <div class="col col-xl-6 col-12">
-                <label for="">Id medico</label>
-                <input type="text" id="id_medico" class="form-control" />
+              <label for="">Id medico</label>
+              <input type="text" id="id_medico" class="form-control" />
             </div>
 
             <div class="col col-xl-6 col-12">
-                <label for="">Habitacion</label>
-                <input type="text" id="habitacion" class="form-control" />
+              <label for="">Habitacion</label>
+              <input type="text" id="habitacion" class="form-control" />
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Cama</label>
-                <input type="hidden" id="id_ingreso" step="1">
-                <input type="number" id="cama" step="1" class="form-control" onfocusout="validarCama(this);" />
+              <label for="">Cama</label>
+              <input type="hidden" id="id_ingreso" step="1">
+              <input type="number" id="cama" step="1" class="form-control" onfocusout="validarCama(this);" />
             </div>
 
             <div class="col col-xl-6 col-12">
-                <label for="">Fecha ingreso</label>
-                <input type="text" id="fecha_ingreso" class="form-control" />
+              <label for="">Fecha ingreso</label>
+              <input type="text" id="fecha_ingreso" class="form-control" />
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Fecha salida</label>
-                <input type="text" id="fecha_salida" class="form-control" />
+              <label for="">Fecha salida</label>
+              <input type="text" id="fecha_salida" class="form-control" />
             </div>
             <div class="col col-xl-6 col-12">
-                <label for="">Estado</label>
-                <input type="text" id="estado" class="form-control" />
+              <label for="">Estado</label>
+              <input type="text" id="estado" class="form-control" />
             </div>
 
-        </div>
-        <button class="btn btn-success" onclick="limpiarIngreso();">
+          </div>
+          <button class="btn btn-success" onclick="limpiarIngreso();">
             Limpiar
           </button>
           <button type="button" class="btn btn-primary" onclick="actualizarIngreso();">Actualizar</button>
@@ -108,5 +115,6 @@
       </div>
     </div>
   </div>
-  </body>
+</body>
+
 </html>

@@ -164,7 +164,6 @@ function registrarIngreso() {
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
     "estado": document.getElementById("estado").value
-
   };
 
   if (validarCampos()) {
@@ -180,6 +179,11 @@ function registrarIngreso() {
           icon: "success"
         });
       },
+      //validacion para que no hayan varios ingresos con un mismo paciente
+      error: function (error) {
+        // alert("error al guardar".error);
+         Swal.fire("Error", "Error al guardar "+error.responseText, "error");
+       },
     })
   } else {
     Swal.fire({
@@ -374,3 +378,68 @@ function limpiarIngreso() {
   document.getElementById("fecha_salida").value = "";
   document.getElementById("estado").value = "";
 }
+
+
+function CargarFormulario() {
+  cargarMedico();
+  cargarPaciente();
+}
+
+function cargarMedico() {
+  let urlMedico = "http://localhost:8080/api/v1/medico/";
+
+  $.ajax({
+    url: urlMedico,
+    type: "GET",
+    success: function (result) {
+      let medico = document.getElementById("id_medico");
+      medico.innerHTML = "";
+      let seleccioneOpcion =document.createElement("option");
+      seleccioneOpcion.value="";seleccioneOpcion.innerText="Seleccione una opción";
+      medico.appendChild(seleccioneOpcion);
+
+      for (let i = 0; i < result.length; i++) {
+        let nombreMedico = document.createElement("option");
+        nombreMedico.value = result[i]["id_medico"];
+        nombreMedico.innerText = nombre_completo_medico =
+          result[i]["primer_nombre"] +
+          " " +
+          result[i]["segundo_nombre"] +
+          " " +
+          result[i]["primer_apellido"] +
+          " " +
+          result[i]["segundo_apellido"];
+        medico.appendChild(nombreMedico);
+      }
+    },
+  });
+}
+function cargarPaciente() {
+  let urlpaciente = "http://localhost:8080/api/v1/paciente/";
+
+  $.ajax({
+    url: urlpaciente,
+    type: "GET",
+    success: function (result) {
+      let paciente = document.getElementById("id_paciente");
+      paciente.innerHTML = "";
+      let seleccioneOpcion =document.createElement("option");
+      seleccioneOpcion.value="";seleccioneOpcion.innerText="Seleccione una opción";
+      paciente.appendChild(seleccioneOpcion);
+      for (let i = 0; i < result.length; i++) {
+        let nombrepaciente = document.createElement("option");
+        nombrepaciente.value = result[i]["id_paciente"];
+        nombrepaciente.innerText = nombre_completo_paciente =
+          result[i]["primer_nombre"] +
+          " " +
+          result[i]["segundo_nombre"] +
+          " " +
+          result[i]["primer_apellido"] +
+          " " +
+          result[i]["segundo_apellido"];
+        paciente.appendChild(nombrepaciente);
+      }
+    },
+  });
+}
+
