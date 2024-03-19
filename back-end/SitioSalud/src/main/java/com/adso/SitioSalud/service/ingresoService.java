@@ -49,6 +49,8 @@ public class ingresoService  implements IIngresoService{
 		return ListaIngreso;
 	}
 	
+	
+	
 	@Override
 	public Optional<ingreso> findOne(String id_ingreso) {
 		Optional<ingreso>ingreso=data.findById(id_ingreso);
@@ -60,5 +62,10 @@ public class ingresoService  implements IIngresoService{
 	public int delete(String id_ingreso) {
 		data.deleteById(id_ingreso);
 		return 1;
+	}
+	@Override
+	public List<ingreso>filtroCamaOcupada(String cama, String habitacion ){
+		List<ingreso>ListaIngreso=data.filtroCamaOcupada(cama, habitacion);
+		return ListaIngreso;
 	}
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,6 +46,7 @@ public class ingresoController {
 	    if (!listaPacienteA.isEmpty()) {
 	        return new ResponseEntity<>("el paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
 	    }
+	 
 	    
 	    // Guardar el nuevo ingreso
 	    ingresoService.save(ingreso);
@@ -55,6 +57,20 @@ public class ingresoController {
 		var ListaIngreso = ingresoService.findAll();
 		return new ResponseEntity<>(ListaIngreso, HttpStatus.OK);
 	}
+	@PostMapping("/")
+	public ResponseEntity<Object> filtroCamaOcupada(@RequestBody ingreso ingreso) {
+	    // Verificar si la cama y la habitación ya están ocupadas
+	    List<ingreso> ingresos = ingresoService.filtroCamaOcupada(ingreso.getCama(), ingreso.getHabitacion());
+	    if (!ingresos.isEmpty()) {
+	        return new ResponseEntity<>("La cama y la habitación ya están ocupadas", HttpStatus.BAD_REQUEST);
+	    }
+	    
+	    // Si la cama y la habitación no están ocupadas, continuar con la lógica de tu aplicación aquí
+	    
+	    return new ResponseEntity<>("La cama y la habitación no están ocupadas, continuar con la lógica de tu aplicación", HttpStatus.OK);
+	}
+
+	
 	
 	//filtro
 		@GetMapping("/busquedafiltro/{filtro}")

@@ -13,6 +13,7 @@ public interface IIngresoService {
     public List<ingreso> filtroIngreso(String filtro);
     public List<ingreso> filtroEstado(String id_paciente);
     public List<ingreso> filtroFechaIngreso(Date fecha_ingreso);
+    public List<ingreso>filtroCamaOcupada(String cama, String habitacion);
 	public Optional<ingreso> findOne(String id);
 	public int delete (String id);
 }
