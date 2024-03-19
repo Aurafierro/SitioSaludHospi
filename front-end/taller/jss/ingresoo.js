@@ -182,7 +182,7 @@ function registrarIngreso() {
       //validacion para que no hayan varios ingresos con un mismo paciente
       error: function (error) {
         // alert("error al guardar".error);
-         Swal.fire("Error", "Error al guardar "+error.responseText, "error");
+         Swal.fire("Error", "Error al guardar, "+error.responseText, "error");
        },
     })
   } else {
