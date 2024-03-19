@@ -37,20 +37,19 @@ public class ingresoController {
 	 * retorna un json , indicando si funciono, presentó
 	 * error, los datos solicitados
 	 */
+  
   @PostMapping("/")
-	public ResponseEntity<Object> save(
-			@ModelAttribute("ingreso") ingreso ingreso
-			){
-			
-				List<ingreso> listaPacienteA=ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
-			if(listaPacienteA.size()!=0){
-				
-				return new ResponseEntity<>("El paciente ya tiene un ingreso activo",HttpStatus.BAD_REQUEST);		
-			}
-		ingresoService.save(ingreso);
-		return new ResponseEntity<>(ingreso,HttpStatus.OK);
+  public ResponseEntity<Object> save(@ModelAttribute("ingreso") ingreso ingreso) {
+	    // Verificar si el paciente ya tiene un ingreso activo
+	    List<ingreso> listaPacienteA = ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
+	    if (!listaPacienteA.isEmpty()) {
+	        return new ResponseEntity<>("el paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+	    }
+	    
+	    // Guardar el nuevo ingreso
+	    ingresoService.save(ingreso);
+	    return new ResponseEntity<>(ingreso, HttpStatus.OK);
 	}
-	
 	@GetMapping("/")
 	public ResponseEntity<Object>findAll(){
 		var ListaIngreso = ingresoService.findAll();

@@ -3,7 +3,7 @@ var url = "http://localhost:8080/api/v1/paciente/";
 function listarPaciente() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
-  var capturarFiltro=document.getElementById("inputSearch").value;
+  var capturarFiltro = document.getElementById("inputSearch").value;
   var urlLocal=url;
   if (capturarFiltro!=""){
     urlLocal+="busquedafiltro/"+capturarFiltro;

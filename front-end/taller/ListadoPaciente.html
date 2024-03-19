@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="css/bootstrap.css">
   <script src="jss/bootstrap.js"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,11 +22,15 @@
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <b><a class="navbar-brand">Filtros</a></b>
-        <form class="d-flex" role="search" onsubmit="buscarPaciente(); return false;">
-          <input class="form-control me-2" type="search" placeholder="Buscar paciente" aria-label="Search"
+        <form class="d-flex" role="search" return false;>
+          <input class="form-control me-2" type="search" placeholder="Buscar Paciente" aria-label="Search"
             id="inputSearch">
           <button class="btn btn-outline-success" type="button" onclick="listarPaciente();">Buscar</button>
+          <a href="./paginaPrincipal.html" class="btn btn-outline-primary">
+            <i class="fas fa-home"></i>
+          </a>
         </form>
+
       </div>
       <div>
         <button class="btn btn-success">Habilitados</button>
