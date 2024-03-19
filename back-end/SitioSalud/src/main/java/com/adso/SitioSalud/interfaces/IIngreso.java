@@ -44,6 +44,10 @@ public interface IIngreso extends CrudRepository<ingreso,String>{
 			)
 			List<ingreso> filtroEstado(String id_paciente);
 			
+			@Query("SELECT i FROM ingreso i WHERE i.estado = ?1 AND i.estado = 'H' AND i.estado='D'")
+			List<ingreso> filtroHabilitar(String estado );
+
+			
 
 			@Query("SELECT i FROM ingreso i WHERE i.cama = ?1 AND i.habitacion = ?2 AND i.estado='H'")
 			List<ingreso> filtroCamaOcupada(String cama, String habitacion);

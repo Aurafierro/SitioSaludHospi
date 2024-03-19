@@ -106,6 +106,8 @@ public class ingresoController {
 		var ingreso= ingresoService.findOne(id_ingreso).get();
 		if (ingreso != null) {
 			
+			ingreso.setPaciente(ingresoUpdate.getPaciente());
+			ingreso.setMedico(ingresoUpdate.getMedico());
 			ingreso.setHabitacion(ingresoUpdate.getHabitacion());
 			ingreso.setCama(ingresoUpdate.getCama());
 			ingreso.setFecha_ingreso(ingresoUpdate.getFecha_ingreso());

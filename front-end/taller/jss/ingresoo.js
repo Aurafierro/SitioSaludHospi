@@ -40,6 +40,7 @@ function listarIngreso() {
         botonEditarIngreso.innerHTML = "Editar"
         botonEditarIngreso.onclick=function(e){
           $('#exampleModal').modal('show');
+          CargarFormulario();
           consultarIngresoID(this.value);
         }
 
