@@ -86,6 +86,7 @@ public class ingresoController {
 		 if (ingreso!=null) {
 			 if (ingreso.getEstado().equals("H")) {
 				 ingreso.setEstado("D");
+				 ingresoService.save(ingreso);
 				 return new ResponseEntity<>("Se ha deshabilitado correctamente", HttpStatus.OK);
 				 
 			 } else 
