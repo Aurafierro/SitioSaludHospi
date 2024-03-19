@@ -64,7 +64,7 @@ public class ingresoService  implements IIngresoService{
 		return 1;
 	}
 	@Override
-	public List<ingreso>filtroCamaOcupada(String cama, String habitacion ){
+	public List<ingreso>filtroCamaOcupada(String cama, String habitacion){
 		List<ingreso>ListaIngreso=data.filtroCamaOcupada(cama, habitacion);
 		return ListaIngreso;
 	}

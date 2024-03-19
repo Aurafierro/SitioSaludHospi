@@ -48,6 +48,16 @@ public class ingresoController {
 	    }
 	 
 	    
+	    List<ingreso> ingresos = ingresoService.filtroCamaOcupada(ingreso.getCama(), ingreso.getHabitacion());
+	    if (!ingresos.isEmpty()) {
+	        return new ResponseEntity<>("La cama y la habitación ya están ocupadas", HttpStatus.BAD_REQUEST);
+	    }
+	    
+	    // Si la cama y la habitación no están ocupadas, continuar con la lógica de tu aplicación aquí
+	    
+	    return new ResponseEntity<>("La cama y la habitación no están ocupadas, continuar con la lógica de tu aplicación", HttpStatus.OK);
+  
+	    
 	    // Guardar el nuevo ingreso
 	    ingresoService.save(ingreso);
 	    return new ResponseEntity<>(ingreso, HttpStatus.OK);
@@ -97,7 +107,7 @@ public class ingresoController {
 				 
 			 } else 
 				 ingreso.setEstado("H");
-			 return new ResponseEntity<>("Seha habilitado correctamente",HttpStatus.OK);
+			 return new ResponseEntity<>("Se ha habilitado correctamente",HttpStatus.OK);
 			 
 		 } else {
 			 return new ResponseEntity<>("No se ha encontrado el medico", HttpStatus.BAD_REQUEST);
