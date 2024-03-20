@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.adso.SitioSalud.models.ingreso;
 import com.adso.SitioSalud.models.paciente;
 
 @Repository
@@ -26,4 +27,9 @@ public interface IPaciente extends CrudRepository<paciente,String>{
 			+ "p.telefono_persona_contacto LIKE %?1% OR "
 			+ "p.estado LIKE %?1%")
 	List<paciente>filtroPaciente(String filtro);
+	
+	@Query("SELECT p FROM paciente p WHERE p.numero_documento = ?1 AND p.estado='H'")
+	List<paciente> filtroIngreso(String numero_documento );
 }
+
+

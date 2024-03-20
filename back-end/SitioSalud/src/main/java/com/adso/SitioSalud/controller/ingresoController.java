@@ -85,12 +85,14 @@ public class ingresoController {
 		 var ingreso= ingresoService.findOne(id).get();
 		 if (ingreso!=null) {
 			 if (ingreso.getEstado().equals("H")) {
+				 ingresoService.save(ingreso);
 				 ingreso.setEstado("D");
 				 ingresoService.save(ingreso);
 				 return new ResponseEntity<>("Se ha deshabilitado correctamente", HttpStatus.OK);
 				 
 			 } else 
 				 ingreso.setEstado("H");
+			 ingresoService.save(ingreso);
 			 return new ResponseEntity<>("Se ha habilitado correctamente",HttpStatus.OK);
 			 
 		 } else {

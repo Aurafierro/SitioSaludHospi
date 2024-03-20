@@ -68,11 +68,15 @@ public class medicoController {
 		 var medico=medicoService.findOne(id).get();
 		 if (medico!=null) {
 			 if (medico.getEstado().equals("H")) {
+				 medicoService.save(medico);
 				 medico.setEstado("D");
+				 medicoService.save(medico);
 				 return new ResponseEntity<>("Se ha deshabilitado correctamente", HttpStatus.OK);
+				 
 				 
 			 } else 
 				 medico.setEstado("H");
+			 medicoService.save(medico);
 			 return new ResponseEntity<>("Seha habilitado correctamente",HttpStatus.OK);
 			 
 		 } else {
