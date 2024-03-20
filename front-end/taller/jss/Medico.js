@@ -194,8 +194,6 @@ function registrarMedico() {
       "telefono",
       "correo",
       "direccion",
-      "nombre_persona_contacto",
-      "telefono_persona_contacto",
       "estado"
   ];
 
