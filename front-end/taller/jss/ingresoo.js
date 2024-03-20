@@ -170,51 +170,48 @@ function registrarIngreso() {
 
   let camposValidos = true;
   let camposRequeridos = [
-      "tipo_documento",
-      "numero_documento",
-      "primer_nombre",
-      "primer_apellido",
-      "telefono",
-      "correo",
-      "direccion",
-      "nombre_persona_contacto",
-      "telefono_persona_contacto",
+      "id_paciente",
+      "id_medico",
+      "cama",
+      "habitacion",
+      "fecha_ingreso",
+      "fecha_salida",
       "estado"
   ];
 
   camposRequeridos.forEach(function(campo) {
-      let valorCampo = document.getElementById(campo).value.trim();
-      if (valorCampo === "") {
-          camposValidos = false;
-          return false; // Terminar la iteración si se encuentra un campo vacío
-      }
-  });
+    let valorCampo = document.getElementById(campo).value.trim();
+    if (valorCampo === "") {
+        camposValidos = false;
+        return false; // Terminar la iteración si se encuentra un campo vacío
+    }
+});
 
-  if (camposValidos) {
-      $.ajax({
-          url: url,
-          type: "POST",
-          data: formData,
-          success: function (result) {
-              Swal.fire({
-                  title: "¡Excelente!",
-                  text: "Se guardó correctamente",
-                  icon: "success"
-              });
-              limpiarPaciente();
-          },
-          error: function (error) {
-              Swal.fire("Error", "Error al guardar, " + error.responseText, "error");
-          },
-      });
+if (camposValidos) {
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        success: function (result) {
+            Swal.fire({
+                title: "¡Excelente!",
+                text: "Se guardó correctamente",
+                icon: "success"
+            });
+            limpiarPaciente();
+        },
+        error: function (error) {
+            Swal.fire("Error", "Error al guardar, " + error.responseText, "error");
+        },
+    });
 
-  } else {
-      Swal.fire({
-          title: "¡Error!",
-          text: "Llene todos los campos correctamente",
-          icon: "error"
-      });
-  }
+} else {
+    Swal.fire({
+        title: "¡Error!",
+        text: "Llene todos los campos correctamente",
+        icon: "error"
+    });
+}
 
 }
 
@@ -242,6 +239,31 @@ function validarIdMedico(cuadroNumero) {
 
 }
 
+//Validadcama
+
+
+function validarCampos() {
+  var cama = document.getElementById("cama");
+  return validarCama(cama);
+}
+function validarCama(cuadroNumero) {
+  
+  var valor = cuadroNumero.value;
+  var valido = true;
+  if (valor.length < 1  || valor.length > 10) {
+    valido = false
+  }
+
+  if (valido) {
+    //cuadro de texto cumple
+    cuadroNumero.className = "form-control is-valid";
+  } else {
+    //cuadro de texto no cumple
+    cuadroNumero.className = "form-control is-invalid";
+  }
+  return valido;
+
+}
 //ValidadHabitacion
 
 
