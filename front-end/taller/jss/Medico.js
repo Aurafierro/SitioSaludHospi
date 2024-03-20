@@ -95,7 +95,7 @@ function listarMedico() {
   })
   
 }
-
+//
 function consultarMedicoID(id){
   //alert(id);
   $.ajax({
