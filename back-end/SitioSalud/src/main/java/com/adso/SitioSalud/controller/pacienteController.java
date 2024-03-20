@@ -1,5 +1,7 @@
 package com.adso.SitioSalud.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adso.SitioSalud.intefaceService.IPacienteService;
+
 import com.adso.SitioSalud.models.paciente;
 
 
@@ -37,9 +40,14 @@ public class pacienteController {
 	 * error, los datos solicitados
 	 */
 	@PostMapping("/")
-  public ResponseEntity<Object> save(
-		  @ModelAttribute("paciente")paciente paciente
-		  ){
+	
+public ResponseEntity<Object> save(@ModelAttribute("paciente") paciente paciente) {
+	    
+	    List<paciente> pacientes = pacienteService.filtroIngreso(paciente.getNumero_documento());
+	    if (!pacientes.isEmpty()) {
+	        return new ResponseEntity<>("el paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+	    }
+	    
 		pacienteService.save(paciente);
 		return new ResponseEntity<>(paciente,HttpStatus.OK);
 	}
@@ -64,11 +72,26 @@ public class pacienteController {
 	}
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete ( @PathVariable String id ){
-		 pacienteService.delete(id);
-		return new ResponseEntity<>("Paciente Eliminado", HttpStatus.OK);
+		 var paciente=pacienteService.findOne(id).get();
+		 if (paciente!=null) {
+			 if (paciente.getEstado().equals("H")) {
+				 pacienteService.save(paciente);
+				 paciente.setEstado("D");
+				 pacienteService.save(paciente);
+				 return new ResponseEntity<>("Se ha deshabilitado correctamente", HttpStatus.OK);
+				 
+				 
+			 } else 
+				 paciente.setEstado("H");
+			 pacienteService.save(paciente);
+			 return new ResponseEntity<>("Seha habilitado correctamente",HttpStatus.OK);
+			 
+		 } else {
+			 return new ResponseEntity<>("No se ha encontrado el medico", HttpStatus.BAD_REQUEST);
+		 }
 	
 	
-     }
+    }
 	
 	@PutMapping("/{id_paciente}")
 	public ResponseEntity<Object> update  ( @PathVariable String id_paciente, @ModelAttribute("paciente") paciente pacienteUpdate){

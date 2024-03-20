@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.adso.SitioSalud.intefaceService.IPacienteService;
 import com.adso.SitioSalud.interfaces.IPaciente;
+
 import com.adso.SitioSalud.models.paciente;
 
 @Service
@@ -48,4 +49,11 @@ public class pacienteService  implements IPacienteService{
 		data.deleteById(id_paciente);
 		return 1;
 	}
+	@Override
+
+	public List<paciente> filtroIngreso(String numero_documento) {
+		List<paciente> listaPaciente=data.filtroIngreso(numero_documento);
+		return listaPaciente;
+	}
+
 }

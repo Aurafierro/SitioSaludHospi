@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+
 import com.adso.SitioSalud.models.medico;
+
 
 @Repository
 
@@ -26,4 +28,8 @@ public interface IMedico extends CrudRepository<medico,String>{
 			+ "m.direccion LIKE %?1% OR "
 			+ "m.estado LIKE %?1%")
 	List<medico>filtroMedico (String filtro);
+	
+	@Query("SELECT m FROM medico m WHERE m.numero_documento = ?1 AND m.estado='H'")
+	List<medico> filtroIngresoMedico(String numero_documento );
+	
 }

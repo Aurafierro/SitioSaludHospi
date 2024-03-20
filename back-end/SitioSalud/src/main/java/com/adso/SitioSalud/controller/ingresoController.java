@@ -40,6 +40,7 @@ public class ingresoController {
   
   @PostMapping("/")
   public ResponseEntity<Object> save(@ModelAttribute("ingreso") ingreso ingreso) {
+	  
 	    // V erificar si el paciente ya tiene un ingreso activo
 	    List<ingreso> listaPacienteA = ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
 	    if (!listaPacienteA.isEmpty()) {
@@ -85,6 +86,7 @@ public class ingresoController {
 		 var ingreso= ingresoService.findOne(id).get();
 		 if (ingreso!=null) {
 			 if (ingreso.getEstado().equals("H")) {
+				 ingresoService.save(ingreso);
 				 ingreso.setEstado("D");
 				 ingresoService.save(ingreso);
 				 return new ResponseEntity<>("Se ha deshabilitado correctamente", HttpStatus.OK);

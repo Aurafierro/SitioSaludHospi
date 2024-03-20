@@ -185,28 +185,54 @@ function registrarMedico() {
 
   };
 
-  if (validarCampos()) {
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      success: function (result) {
-        //
-        Swal.fire({
-          title: "¡Excelente!",
-          text: "Se guardó correctamente",
-          icon: "success"
-        });
-        limpiarMedico();
-      },
-    })
+  let camposValidos = true;
+  let camposRequeridos = [
+      "tipo_documento",
+      "numero_documento",
+      "primer_nombre",
+      "primer_apellido",
+      "telefono",
+      "correo",
+      "direccion",
+      "nombre_persona_contacto",
+      "telefono_persona_contacto",
+      "estado"
+  ];
+
+  camposRequeridos.forEach(function(campo) {
+      let valorCampo = document.getElementById(campo).value.trim();
+      if (valorCampo === "") {
+          camposValidos = false;
+          return false; // Terminar la iteración si se encuentra un campo vacío
+      }
+  });
+
+  if (camposValidos) {
+      $.ajax({
+          url: url,
+          type: "POST",
+          data: formData,
+          success: function (result) {
+              Swal.fire({
+                  title: "¡Excelente!",
+                  text: "Se guardó correctamente",
+                  icon: "success"
+              });
+              limpiarPaciente();
+          },
+          error: function (error) {
+              Swal.fire("Error", "Error al guardar, " + error.responseText, "error");
+          },
+      });
+
   } else {
-    Swal.fire({
-      title: "¡Error!",
-      text: "Llene todos los campos correctamente",
-      icon: "error"
-    });
+      Swal.fire({
+          title: "¡Error!",
+          text: "Llene todos los campos correctamente",
+          icon: "error"
+      });
   }
+
 }
 
 //se ejecuta la peticion
