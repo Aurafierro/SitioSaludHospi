@@ -1,5 +1,7 @@
 package com.adso.SitioSalud.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,7 @@ import com.adso.SitioSalud.models.medico;
 
 
 
+
 @RequestMapping("/api/v1/medico")
 @RestController
 @CrossOrigin
@@ -35,9 +38,12 @@ public class medicoController {
 	 * error, los datos solicitados
 	 */
 	@PostMapping("/")
-  public ResponseEntity<Object> save(
-		  @ModelAttribute("medico")medico medico
-		  ){
+public ResponseEntity<Object> save(@ModelAttribute("medico") medico medico) {
+	    
+	    List<medico> medicos = medicoService.filtroIngresoMedico(medico.getNumero_documento());
+	    if (!medicos.isEmpty()) {
+	        return new ResponseEntity<>("el medico ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+	    }
 		medicoService.save(medico);
 		return new ResponseEntity<>(medico,HttpStatus.OK);
 	}

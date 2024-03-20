@@ -40,6 +40,7 @@ public class ingresoController {
   
   @PostMapping("/")
   public ResponseEntity<Object> save(@ModelAttribute("ingreso") ingreso ingreso) {
+	  
 	    // V erificar si el paciente ya tiene un ingreso activo
 	    List<ingreso> listaPacienteA = ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
 	    if (!listaPacienteA.isEmpty()) {

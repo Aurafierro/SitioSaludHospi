@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.adso.SitioSalud.intefaceService.IMedicoService;
 import com.adso.SitioSalud.interfaces.IMedico;
 import com.adso.SitioSalud.models.medico;
+import com.adso.SitioSalud.models.paciente;
 
 @Service
 public class medicoService  implements IMedicoService{
@@ -49,4 +50,11 @@ public class medicoService  implements IMedicoService{
 		data.deleteById(id_medico);
 		return 1;
 	}
+	@Override
+
+	public List<medico> filtroIngresoMedico(String numero_documento) {
+		List<medico> listaMedico=data.filtroIngresoMedico(numero_documento);
+		return listaMedico;
+	}
+
 }

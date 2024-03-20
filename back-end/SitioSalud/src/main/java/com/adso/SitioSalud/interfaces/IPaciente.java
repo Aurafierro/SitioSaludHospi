@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.adso.SitioSalud.models.ingreso;
+
 import com.adso.SitioSalud.models.paciente;
 
 @Repository

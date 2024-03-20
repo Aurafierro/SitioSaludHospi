@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.adso.SitioSalud.intefaceService.IPacienteService;
 import com.adso.SitioSalud.interfaces.IPaciente;
-import com.adso.SitioSalud.models.ingreso;
+
 import com.adso.SitioSalud.models.paciente;
 
 @Service
