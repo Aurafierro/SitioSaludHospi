@@ -38,7 +38,7 @@ public class ingreso {
 	@Column(name="fecha_salida", nullable= false, length = 20)
 	private String fecha_salida;
 	
-	@Column(name="estado", nullable= false, length = 20)
+	@Column(name="estado", nullable= false, length = 5)
 	private String estado;
 
 	public ingreso() {

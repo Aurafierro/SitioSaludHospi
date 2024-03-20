@@ -277,7 +277,7 @@ function validarPrimer_nombre(cuadroNumero) {
 
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 1 || valor.length > 11) {
+  if (valor.length < 1 || valor.length > 15) {
     valido = false
   }
 
@@ -349,7 +349,7 @@ function validarCorreo(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 5 || valor.length > 200) {
+  if (valor.length < 5 || valor.length > 100) {
     valido = false
   }
 

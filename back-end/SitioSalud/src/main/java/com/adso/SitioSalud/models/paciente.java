@@ -37,19 +37,19 @@ public class paciente {
 	@Column(name="telefono", nullable= false, length = 15)
 	private String telefono;
 
-	@Column(name="correo", nullable= false, length = 200)
+	@Column(name="correo", nullable= false, length = 100)
 	private String correo;
 
 	@Column(name="direccion", nullable= false, length = 100)
 	private String direccion;
 	
-	@Column(name="nombre_persona_contacto", nullable= false, length = 100)
+	@Column(name="nombre_persona_contacto", nullable= false, length = 20)
 	private String nombre_persona_contacto;
 	
-	@Column(name="telefono_persona_contacto", nullable= false, length = 100)
+	@Column(name="telefono_persona_contacto", nullable= false, length = 15)
 	private String telefono_persona_contacto;
 	
-	@Column(name="estado", nullable= false, length = 100)
+	@Column(name="estado", nullable= false, length = 5)
 	private String estado;
 
 	public paciente() {

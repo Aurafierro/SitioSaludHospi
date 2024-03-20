@@ -355,7 +355,7 @@ function validarCorreo(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 5 || valor.length > 200) {
+  if (valor.length < 5 || valor.length > 100) {
     valido = false
   }
 
@@ -406,7 +406,7 @@ function validadNomPersonaContacto(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 3 || valor.length > 100) {
+  if (valor.length < 1|| valor.length > 20) {
     valido = false
   }
 

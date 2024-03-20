@@ -37,13 +37,13 @@ public class medico {
 	@Column(name="telefono", nullable= false, length = 15)
 	private String telefono;
 
-	@Column(name="correo", nullable= false, length = 200)
+	@Column(name="correo", nullable= false, length = 100)
 	private String correo;
 
 	@Column(name="direccion", nullable= false, length = 100)
 	private String direccion;
 	
-	@Column(name="estado", nullable= false, length = 100)
+	@Column(name="estado", nullable= false, length =5)
 	private String estado;
 
 	public medico() {
