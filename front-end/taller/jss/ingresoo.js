@@ -281,7 +281,7 @@ function ValidadHabitacion(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 1  || valor.length > 200) {
+  if (valor.length < 1  || valor.length > 10) {
     valido = false
   }
 

@@ -91,6 +91,7 @@ public class ingresoController {
 				 
 			 } else 
 				 ingreso.setEstado("H");
+			 ingresoService.save(ingreso);
 			 return new ResponseEntity<>("Se ha habilitado correctamente",HttpStatus.OK);
 			 
 		 } else {
