@@ -124,9 +124,13 @@
               <input type="text" id="direccion" class="form-control" />
             </div>
             <div class="col col-xl-6 col-12">
-              <label for="">Estado</label>
-              <input type="text" id="estado" class="form-control" />
-            </div>
+              <label for="estado">Estado</label>
+                  <select id="estado" class="form-select">
+                  <option value="" selected disabled>Seleccione una opción</option>
+                  <option value="H">Habilitado</option>
+                  <option value="D">Deshabilitado</option>
+                  </select>
+              </div>
           </div>
           <button class="btn btn-success" onclick="limpiarMedico();">
             Limpiar

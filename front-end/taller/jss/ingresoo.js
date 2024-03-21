@@ -299,7 +299,7 @@ function validarEstado(cuadroNumero) {
   
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 1  || valor.length > 1) {
+  if (valor.length < 1  || valor.length > 20) {
     valido = false
   }
 

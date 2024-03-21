@@ -110,8 +110,12 @@
               <input type="text" id="fecha_salida" class="form-control" />
             </div>
             <div class="col col-xl-6 col-12">
-              <label for="">Estado</label>
-              <input type="text" id="estado" class="form-control" />
+              <label for="estado">Estado</label>
+              <select id="estado" class="form-select">
+                <option value="" selected disabled>Seleccione una opción</option>
+                <option value="H" style="color:green; font-weight: bold;">Habilitado</option>
+                <option value="AH" style="color:red; font-weight: bold;">Alta Hospitalaria</option>
+              </select>
             </div>
 
           </div>
