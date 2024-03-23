@@ -416,6 +416,7 @@ function validarEstado(cuadroNumero) {
   return valido;
 
 }
+//limpiar el formulario
 function limpiarMedico() {
   document.getElementById("numero_documento").className="form-control";
   document.getElementById("primer_nombre").className="form-control";

@@ -168,11 +168,11 @@ function registrarIngreso() {
     "estado": document.getElementById("estado").value
   };
 
-  // Convertir las fechas a objetos Date para compararlas
+  //que las fechas no sean de un dia antes
   let fecha_ingresoDate = new Date(formData.fecha_ingreso);
   let fecha_salidaDate = new Date(formData.fecha_salida);
 
-  // Verificar si la fecha de salida es anterior o igual a la fecha de ingreso
+  
   if (fecha_salidaDate <= fecha_ingresoDate) {
     Swal.fire({
       title: "Error.",
