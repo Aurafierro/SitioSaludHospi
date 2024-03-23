@@ -168,7 +168,7 @@ function registrarIngreso() {
     "estado": document.getElementById("estado").value
   };
 
-  //que las fechas no sean de un dia antes
+  
   let fecha_ingresoDate = new Date(formData.fecha_ingreso);
   let fecha_salidaDate = new Date(formData.fecha_salida);
 
