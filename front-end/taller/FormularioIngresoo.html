@@ -19,6 +19,7 @@
 <body onload="CargarFormulario();">
     <div class="container">
         <h1 style="margin-top: 100px">Añadir ingreso</h1>
+        <h6>Todos los campos con asterisco son obligatorios</h6>
         <br>
         <div class="row">
 
@@ -42,29 +43,29 @@
             </div>
 
             <div class="col col-xl-6 col-12">
-                <b><label for="">Habitación</label></b>
+                <b><label for="">Habitación *</label></b>
                 <input type="number" id="habitacion" class="form-control" onfocusout="ValidadHabitacion(this);" />
             </div>
             <div class="col col-xl-6 col-12">
-                <b><label for="">Cama</label></b>
+                <b><label for="">Cama *</label></b>
 
                 <input type="number" id="cama" step="1" class="form-control" onfocusout="validarCama(this);" />
             </div>
 
             <div class="col col-xl-6 col-12">
-                <b><label for="">Fecha ingreso</label></b>
+                <b><label for="">Fecha ingreso *</label></b>
                 <input type="date" id="fecha_ingreso" class="form-control" onfocusout="ValidadFechaIngreso(this);" />
             </div>
             <div class="col col-xl-6 col-12">
-                <b><label for="">Fecha salida</label></b>
+                <b><label for="">Fecha salida *</label></b>
                 <input type="date" id="fecha_salida" class="form-control" onfocusout="validadFechaSalida(this);" />
             </div>
             <div class="col col-xl-6 col-12">
-                <b><label for="">Estado</label></b>
+                <b><label for="">Estado *</label></b>
                 <select name="" id="estado" class="form-select" onfocusout="validarEstado(this);">
                     <option value="" selected disabled style="font-weight: bold;">Selecciona una opción</option>
                     <option value="H" style="color:green; font-weight: bold;">Habilitado</option>
-                    <option value="AH" style="color: red; font-weight: bold;">Alta Hospitalaria</option>
+                    
                 </select>
             </div>
 

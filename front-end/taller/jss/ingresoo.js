@@ -170,17 +170,16 @@ function registrarIngreso() {
 
   
   let fecha_ingresoDate = new Date(formData.fecha_ingreso);
-  let fecha_salidaDate = new Date(formData.fecha_salida);
+let fecha_salidaDate = new Date(formData.fecha_salida);
 
-  
-  if (fecha_salidaDate <= fecha_ingresoDate) {
-    Swal.fire({
-      title: "Error.",
-      text: "La fecha de salida no puede ser igual o anterior a la fecha de ingreso.",
-      icon: "error"
-    });
-    return; // Detener la ejecución de la función
-  }
+if (fecha_salidaDate < fecha_ingresoDate) {
+  Swal.fire({
+    title: "Error.",
+    text: "La fecha de salida no puede ser anterior a la fecha de ingreso.",
+    icon: "error"
+  });
+  return; // Detener la ejecución de la función
+}
 
 
   let camposValidos = true;
@@ -213,7 +212,7 @@ if (camposValidos) {
                 text: "Se guardó correctamente",
                 icon: "success"
             });
-            limpiarPaciente();
+            limpiarIngreso();
         },
         error: function (error) {
             Swal.fire("Error", "Error al guardar, " + error.responseText, "error");

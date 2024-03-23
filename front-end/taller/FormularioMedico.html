@@ -20,10 +20,11 @@
 
   <div class="container">
     <h1 style="margin-top: 100px">Añadir médico</h1>
+    <h6>Todos los campos con asterisco son obligatorios</h6>
     <br>
     <div class="row">
       <div class="col col-xl-6 col-12">
-        <b><label for="">Tipo documento</label></b>
+        <b><label for="">Tipo documento *</label></b>
         <select name="" id="tipo_documento" class="form-select">
           <option value="" selected disabled>Selecciona una opción</option>
           <option value="RC">Registro Civil</option>
@@ -34,12 +35,12 @@
       </div>
 
       <div class="col col-xl-6 col-12">
-        <b><label for="">Número de documento</label></b>
+        <b><label for="">Número de documento *</label></b>
         <input type="number" id="numero_documento" step="1" class="form-control"
           onfocusout="validarNumeroDocumento(this);" />
       </div>
       <div class="col col-xl-6 col-12">
-        <b><label for="">Primer Nombre</label></b>
+        <b><label for="">Primer Nombre *</label></b>
         <input type="text" id="primer_nombre" class="form-control" onfocusout="validarPrimer_nombre(this);" />
       </div>
       <div class="col col-xl-6 col-12">
@@ -47,7 +48,7 @@
         <input type="text" id="segundo_nombre" class="form-control" />
       </div>
       <div class="col col-xl-6 col-12">
-        <b><label for="">Primer Apellido</label></b>
+        <b><label for="">Primer Apellido *</label></b>
         <input type="text" id="primer_apellido" class="form-control" onfocusout="validarPrimer_apellido(this);" />
       </div>
       <div class="col col-xl-6 col-12">
@@ -55,21 +56,21 @@
         <input type="text" id="segundo_apellido" class="form-control" />
       </div>
       <div class="col col-xl-6 col-12">
-        <b><label for="">Teléfono</label></b>
+        <b><label for="">Teléfono *</label></b>
         <input type="text" id="telefono" class="form-control" onfocusout="validarTelefono(this);" />
       </div>
       <div class="col col-xl-6 col-12">
-        <b><label for="">Correo</label></b>
+        <b><label for="">Correo *</label></b>
         <input type="email" id="correo" class="form-control" onfocusout="validarCorreo(this);" />
       </div>
       <div class="col col-xl-6 col-12">
-        <b><label for="">Dirección</label></b>
+        <b><label for="">Dirección *</label></b>
         <input type="text" id="direccion" class="form-control" onfocusout="validarDireccion(this);" />
       </div>
       
 
       <div class="col col-xl-6 col-12">
-        <b><label for="">Estado</label></b>
+        <b><label for="">Estado *</label></b>
         <select name="" id="estado" class="form-select" onfocusout="validarEstado(this);">
             <option value="" selected disabled style="font-weight: bold;">Selecciona una opción</option>
             <option value="H" style="color:green; font-weight: bold;">Habilitado</option>

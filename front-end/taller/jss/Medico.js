@@ -219,7 +219,7 @@ function registrarMedico() {
                   text: "Se guardó correctamente",
                   icon: "success"
               });
-              limpiarPaciente();
+              limpiarMedico();
           },
           error: function (error) {
               Swal.fire("Error", "Error al guardar, " + error.responseText, "error");
