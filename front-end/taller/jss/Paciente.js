@@ -193,7 +193,7 @@ function registrarPaciente() {
     "estado": document.getElementById("estado").value
 
   };
-  //llenar todos los campos 
+ 
   let camposValidos = true;
   let camposRequeridos = [
       "tipo_documento",
