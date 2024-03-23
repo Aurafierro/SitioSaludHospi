@@ -1,5 +1,6 @@
 var url = "http://localhost:8080/api/v1/medico/";
 
+
 function listarMedico() {
   //METODO PARA LISTAR LOS CLIENTES
   //SE CREA LA PETICION AJAX
@@ -8,6 +9,7 @@ function listarMedico() {
   if (capturarFiltro!=""){
     urlLocal+="busquedafiltro/"+capturarFiltro;
   }
+  
   $.ajax({
     url: urlLocal,
     type: "GET",
@@ -95,6 +97,7 @@ function listarMedico() {
   })
   
 }
+
 //
 function consultarMedicoID(id){
   //alert(id);
@@ -432,6 +435,8 @@ function limpiarMedico() {
   document.getElementById("direccion").value = "";
   document.getElementById("estado").value = "";
 }
+
+
 
 
 
