@@ -155,6 +155,11 @@ public class medico {
 		this.estado = estado;
 	}
 
+	public boolean contieneCamposVacios() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 	
 	

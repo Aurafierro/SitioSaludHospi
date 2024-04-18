@@ -45,9 +45,51 @@ public ResponseEntity<Object> save(@ModelAttribute("paciente") paciente paciente
 	    
 	    List<paciente> pacientes = pacienteService.filtroIngreso(paciente.getNumero_documento());
 	    if (!pacientes.isEmpty()) {
-	        return new ResponseEntity<>("el paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+	        return new ResponseEntity<>("El paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
 	    }
 	    
+	    if (paciente.getNumero_documento().equals("")) {
+
+            return new ResponseEntity<>("El documento de identidad es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (paciente.getPrimer_nombre().equals("")) {
+
+            return new ResponseEntity<>("El primer nombre es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (paciente.getPrimer_apellido().equals("")) {
+
+            return new ResponseEntity<>("El primer apellido es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (paciente.getTelefono().equals("")) {
+
+            return new ResponseEntity<>("El numero de telefono es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (paciente.getCorreo().equals("")) {
+
+            return new ResponseEntity<>("El correo es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (paciente.getEstado().equals("")) {
+
+            return new ResponseEntity<>("El estado es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        
+        if (paciente.getDireccion().equals("")) {
+
+            return new ResponseEntity<>("La dirección es un campo  obligatoria", HttpStatus.BAD_REQUEST);
+        }
+        if (paciente.getNombre_persona_contacto().equals("")) {
+
+            return new ResponseEntity<>("El Nombre de la Persona  Contacto es  un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (paciente.getTelefono_persona_contacto().equals("")) {
+
+            return new ResponseEntity<>(" El Telefono de la Persona Contacto es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
 		pacienteService.save(paciente);
 		return new ResponseEntity<>(paciente,HttpStatus.OK);
 	}
@@ -95,8 +137,23 @@ public ResponseEntity<Object> save(@ModelAttribute("paciente") paciente paciente
 	
 	@PutMapping("/{id_paciente}")
 	public ResponseEntity<Object> update  ( @PathVariable String id_paciente, @ModelAttribute("paciente") paciente pacienteUpdate){
+		 // Verificar si hay campos vacíos
+        if (pacienteUpdate.contieneCamposVacios()) {
+            return new ResponseEntity<>("Todos los campos son obligatorios", HttpStatus.BAD_REQUEST);
+        }
 		var paciente= pacienteService.findOne(id_paciente).get();
 		if (paciente != null) {
+
+			 // Verificar si el número de documento se está cambiando
+		    if (!paciente.getNumero_documento().equals(pacienteUpdate.getNumero_documento())) {
+		        // El número de documento se está cambiando, verificar si ya está en uso
+		        List<paciente> pacientesConMismoDocumento = pacienteService.filtroIngreso(pacienteUpdate.getNumero_documento());
+		        if (!pacientesConMismoDocumento.isEmpty()) {
+		            // Si hay otros pacientes con el mismo número de documento, devuelve un error
+		            return new ResponseEntity<>("El paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+		        }
+		    }
+
 			
 			paciente.setTipo_documento(pacienteUpdate.getTipo_documento());
 			paciente.setNumero_documento(pacienteUpdate.getNumero_documento());

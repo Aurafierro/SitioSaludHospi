@@ -159,6 +159,7 @@ if (validarCampos()) {
           // Puedes hacer algo adicional como recargar la lista de médicos
           listarPaciente();
       },
+      
       error: function(error) {
           // Manejar el error de la petición
           Swal.fire({
@@ -166,7 +167,10 @@ if (validarCampos()) {
               text: "No se guardó",
               icon: "error"
             });
-      }
+      },
+      error: function (error) {
+        Swal.fire("Error", "Error al guardar, " + error.responseText, "error");
+    }
   });
   } else {
   Swal.fire({
@@ -175,6 +179,27 @@ if (validarCampos()) {
       icon: "error"
     });
   }
+  function validarCampos() {
+    // Obtener los valores de los campos
+    var tipo_documento = document.getElementById("tipo_documento").value;
+    var numero_documento = document.getElementById("numero_documento").value;
+    var primer_nombre = document.getElementById("primer_nombre").value;
+    var segundo_nombre = document.getElementById("segundo_nombre").value;
+    var primer_apellido = document.getElementById("primer_apellido").value;
+    var segundo_apellido = document.getElementById("segundo_apellido").value;
+    var telefono = document.getElementById("telefono").value;
+    var correo = document.getElementById("correo").value;
+    var direccion = document.getElementById("direccion").value;
+    var estado = document.getElementById("estado").value;
+  
+    // Verificar si algún campo está vacío
+    if (tipo_documento === '' || numero_documento === '' || primer_nombre === '' || primer_apellido === '' || telefono === '' || correo === '' || direccion === '' || estado === '') {
+      return false; // Al menos un campo está vacío
+    } else {
+      return true; // Todos los campos están llenos
+    }
+  }
+  
 }
 function registrarPaciente() {
 

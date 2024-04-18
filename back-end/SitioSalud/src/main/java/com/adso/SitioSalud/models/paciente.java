@@ -46,7 +46,7 @@ public class paciente {
 	@Column(name="nombre_persona_contacto", nullable= false, length = 20)
 	private String nombre_persona_contacto;
 	
-	@Column(name="telefono_persona_contacto", nullable= false, length = 15)
+	@Column(name="telefono_persona_contacto", nullable= false, length = 100)
 	private String telefono_persona_contacto;
 	
 	@Column(name="estado", nullable= false, length = 5)
@@ -178,6 +178,12 @@ public class paciente {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	public boolean contieneCamposVacios() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 
 	

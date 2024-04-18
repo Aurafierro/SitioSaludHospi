@@ -15,5 +15,4 @@ public interface IMedicoService {
 	public List<medico> filtroIngresoMedico(String numero_documento );
 	public Optional<medico> findOne(String id);
 	public int delete (String id);
-	
-}
+} 

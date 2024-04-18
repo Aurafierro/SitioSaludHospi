@@ -122,6 +122,24 @@ function actualizarIngreso() {
     "estado": document.getElementById("estado").value
 
 };
+function validarCampos() {
+  // Obtener los valores de los campos
+  var id_medico = document.getElementById("id_medico").value;
+  var id_paciente = document.getElementById("id_paciente").value;
+  var habitacion = document.getElementById("habitacion").value;
+  var cama = document.getElementById("cama").value;
+  var fecha_ingreso = document.getElementById("fecha_ingreso").value;
+  var fecha_salida = document.getElementById("fecha_salida").value;
+  var estado = document.getElementById("estado").value;
+ 
+
+  // Verificar si algún campo está vacío
+  if (id_medico === '' || id_paciente === '' || habitacion === '' || cama === '' || fecha_ingreso === '' || fecha_salida === '' ||  estado === '') {
+    return false; // Al menos un campo está vacío
+  } else {
+    return true; // Todos los campos están llenos
+  }
+}
 
 if (validarCampos()) {
   $.ajax({

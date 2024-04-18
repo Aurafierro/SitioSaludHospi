@@ -1,5 +1,6 @@
 package com.adso.SitioSalud.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class ingresoController {
   
   @PostMapping("/")
   public ResponseEntity<Object> save(@ModelAttribute("ingreso") ingreso ingreso) {
+	  
 	    // V erificar si el paciente ya tiene un ingreso activo
 	    List<ingreso> listaPacienteA = ingresoService.filtroEstado(ingreso.getPaciente().getId_paciente());
 	    if (!listaPacienteA.isEmpty()) {
@@ -49,6 +51,54 @@ public class ingresoController {
 	    if (!ingresos.isEmpty()) {
 	        return new ResponseEntity<>("La cama y la habitación ya están ocupadas", HttpStatus.BAD_REQUEST);
 	    }
+	     
+	  //verificar que el campo documento de identidad sea diferente vacio
+        if (ingreso.getHabitacion().equals("")) {
+
+            return new ResponseEntity<>("El campo habitacion es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (ingreso.getCama().equals("")) {
+            
+            return new ResponseEntity<>("El campo cama es obligatorio", HttpStatus.BAD_REQUEST);
+            
+        }
+     // Verificar que las fechas sean válidas
+        LocalDate fechaIngreso = LocalDate.parse(ingreso.getFecha_ingreso());
+        LocalDate fechaSalida = LocalDate.parse(ingreso.getFecha_salida());
+        if (fechaSalida.compareTo(fechaIngreso) < 0) {
+            return new ResponseEntity<>("La fecha de salida no puede ser anterior a la fecha de ingreso", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getPaciente().equals("")) {
+            
+            return new ResponseEntity<>("El campo paciente es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getMedico().equals("")) {
+            
+            return new ResponseEntity<>("El campo medico es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getFecha_ingreso().equals("")) {
+            
+            return new ResponseEntity<>("El campo fecha ingreso es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getFecha_salida().equals("")) {
+            
+            return new ResponseEntity<>("El campo fecha salida es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getHabitacion().equals("")) {
+            
+            return new ResponseEntity<>("El campo habitacion es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (ingreso.getCama().equals("")) {
+            
+            return new ResponseEntity<>("El campo cama es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+	        
+	        
+        if (ingreso.getEstado().equals("")) {
+            
+            return new ResponseEntity<>("El campo estado es obligatorio", HttpStatus.BAD_REQUEST);
+        }
 	           
 	    	  
 	    // Guardar el nuevo ingreso
@@ -105,8 +155,31 @@ public class ingresoController {
 	
 	@PutMapping("/{id_ingreso}")
 	public ResponseEntity<Object> update  ( @PathVariable String id_ingreso, @ModelAttribute("ingreso") ingreso ingresoUpdate){
+		 // Verificar si hay campos vacíos
+        if (ingresoUpdate.contieneCamposVacios()) {
+            return new ResponseEntity<>("Todos los campos son obligatorios", HttpStatus.BAD_REQUEST);
+        }
+
 		var ingreso= ingresoService.findOne(id_ingreso).get();
 		if (ingreso != null) {
+			
+			 List<ingreso> listaPacienteA = ingresoService.filtroEstado(ingresoUpdate.getPaciente().getId_paciente());
+		        if (!listaPacienteA.isEmpty()) {
+		            return new ResponseEntity<>("el paciente ya tiene un ingreso activo", HttpStatus.BAD_REQUEST);
+		        }
+		        
+		        // Verificar si la cama y la habitación ya están ocupadas
+		        List<ingreso> ingresos = ingresoService.filtroCamaOcupada(ingresoUpdate.getCama(), ingresoUpdate.getHabitacion());
+		        if (!ingresos.isEmpty()) {
+		            return new ResponseEntity<>("La cama y la habitación ya están ocupadas", HttpStatus.BAD_REQUEST);
+		        }
+		        
+			 // Verificar que la fecha de salida no sea anterior a la fecha de ingreso
+	        LocalDate fechaIngreso = LocalDate.parse(ingresoUpdate.getFecha_ingreso());
+	        LocalDate fechaSalida = LocalDate.parse(ingresoUpdate.getFecha_salida());
+	        if (fechaSalida.compareTo(fechaIngreso) < 0) {
+	            return new ResponseEntity<>("La fecha de salida no puede ser anterior a la fecha de ingreso", HttpStatus.BAD_REQUEST);
+	        }
 			
 			ingreso.setPaciente(ingresoUpdate.getPaciente());
 			ingreso.setMedico(ingresoUpdate.getMedico());

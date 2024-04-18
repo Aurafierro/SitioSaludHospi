@@ -123,6 +123,11 @@ public class ingreso {
 		this.estado = estado;
 	}
 
+	public boolean contieneCamposVacios() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 	
 
